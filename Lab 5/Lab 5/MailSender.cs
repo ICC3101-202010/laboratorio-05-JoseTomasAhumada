@@ -32,7 +32,9 @@ namespace Lab_5
         }
         public void OnEmailSent(object source, EventArgs args)
         {
+            Thread.Sleep(2000);
             Console.WriteLine("El correo ha sido enviado con éxito.");
+            Thread.Sleep(2000);
         }
     }
 }

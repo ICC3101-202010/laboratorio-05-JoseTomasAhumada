@@ -136,6 +136,7 @@ namespace Lab_5
         public void VerifyEmail()
         {
             OnEmailVerified();
+            Console.WriteLine("Correo verificado correctamente");
         }
     }
 }
