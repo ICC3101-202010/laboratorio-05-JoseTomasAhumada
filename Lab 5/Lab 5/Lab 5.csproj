@@ -49,8 +49,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterEventArgs.cs" />
+    <Compile Include="SendEmailEventArgs.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="SMSSender.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

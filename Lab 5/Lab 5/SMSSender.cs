@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Lab_5
 {
-    class SMSSender
+    public class SMSSender
     {
         public void OnPasswordChanged(object source, ChangePasswordEventArgs e)
         {

@@ -38,7 +38,19 @@ namespace Lab_5
                 PasswordChanged(this, new ChangePasswordEventArgs() { Username = username, Email = email, Number = number });
             }
         }
-
+        public delegate void VerifyEmailEventHandler(object source, EventArgs args);
+        public event VerifyEmailEventHandler EmailVerified;
+        protected virtual void OnEmailVerified()
+        {
+            if (EmailVerified != null)
+            {
+                EmailVerified(this, EventArgs.Empty);
+            }
+        }
+        public void OnEmailVerified(object source, EventArgs args)
+        {
+            Console.WriteLine("El correo se verificó correctamente.");
+        }
 
         // Atributo BaseDatos
         public DataBase Data { get; }
@@ -119,6 +131,11 @@ namespace Lab_5
                 result += rndom;
             }
             return "http://pluscorporation.com/verificar-correo.php?=" + usr + "_" + result;
+        }
+
+        public void VerifyEmail()
+        {
+            OnEmailVerified();
         }
     }
 }

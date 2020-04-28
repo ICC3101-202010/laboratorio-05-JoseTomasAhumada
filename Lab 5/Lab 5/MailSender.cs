@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Lab_5
 {
-    class MailSender
+    public class MailSender
     {
         public void OnRegistered(object source, RegisterEventArgs e)
         {
@@ -20,6 +20,19 @@ namespace Lab_5
             Thread.Sleep(2000);
             Console.WriteLine($"\nCorreo enviado a {e.Email}:  \n {e.Username}, te notificamos que la contrasena de tu cuenta PlusCorp ha sido cambiada. \n");
             Thread.Sleep(2000);
+        }
+        public delegate void SendEmailEventHandler(object source, EventArgs args);
+        public event SendEmailEventHandler EmailSent;
+        protected virtual void OnEmailSent()
+        {
+            if (EmailSent != null)
+            {
+                EmailSent(this, EventArgs.Empty);
+            }
+        }
+        public void OnEmailSent(object source, EventArgs args)
+        {
+            Console.WriteLine("El correo ha sido enviado con éxito.");
         }
     }
 }
